@@ -2,11 +2,11 @@ import allure
 from selene import browser, be, have
 
 @allure.tag('smoke')
-@allure.feature('Homepage')
+@allure.feature('homepage')
 @allure.story('Header & Footer visibility')
 def test_homepage_header_footer(setup_browser):
     with allure.step('Open the homepage'):
-        browser.open('/')
+        browser.open('')
 
     with allure.step('Verify logo is visible in the header'):
         browser.element('.logo').should(be.visible)
@@ -19,4 +19,11 @@ def test_homepage_header_footer(setup_browser):
         browser.element('[data-testid="pd-button-request-demo"]').should(be.visible).should(be.enabled)
 
     with allure.step('Scroll down to the footer'):
-        pass
+        browser.driver.execute_script("window.scrollTo(0, document.body.scrollHeight);")
+
+    with allure.step('Verify footer is visible'):
+        browser.element('footer').should(be.visible)
+
+    with allure.step('Verify footer contains key links'):
+        browser.element('footer').should(have.text('Privacy notice')).should(be.clickable)
+        browser.element('footer').should(have.text('Legal')).should(be.clickable)
