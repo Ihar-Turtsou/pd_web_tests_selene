@@ -1,21 +1,23 @@
 import allure
 from selene import browser, be, have
+from src.pages.templates_page import TemplatesPage
 
 
-@allure.feature("Pricing")
-@allure.story("Plans & CTA")
+@allure.tag("web", "smoke", "templates")
+@allure.feature("Templates")
+@allure.story("Search")
 @allure.severity(allure.severity_level.CRITICAL)
-@allure.tag("web", "smoke", "pricing")
-@allure.link("https://www.pandadoc.com/pricing/", name="Pricing page")
+@allure.link("https://www.pandadoc.com/templates/", name="Templates page")
 def test_search_template(setup_browser):
-    with allure.step('Open the pricing page'):
-        browser.open('/templates/')
-
+    templates_page = TemplatesPage()
     query_text = 'Convertible Note Agreement Template'
 
+    with allure.step('Open the pricing page'):
+        templates_page.templates_page_open()
+
     with allure.step(f'Search for "{query_text}"'):
-        browser.element('.input-text.search__input').type(query_text).press_enter()
+        templates_page.search_input.type(query_text).press_enter()
 
     with allure.step("Verify search result contains expected title in <p>"):
-        browser.all('.card-doc').element_by(have.text(query_text)).should(be.visible)
+        templates_page.cards_doc.element_by(have.text(query_text)).should(be.visible)
 

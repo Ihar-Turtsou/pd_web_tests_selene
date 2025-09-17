@@ -1,18 +1,22 @@
 import allure
-from selene import browser, be, have
+from selene import be, have
+from src.pages.contact_sales_page import ContactSalesPage
 
 
+@allure.tag("web", "regression", "forms")
 @allure.feature("Forms")
-@allure.story("Contact Sales")
-@allure.severity(allure.severity_level.CRITICAL)
+@allure.story("Contact Sales form validation")
+@allure.severity(allure.severity_level.NORMAL)
+@allure.link("https://www.pandadoc.com/contact-sales/", name="Contact Sales page")
 def test_submit_empty_contact_sales_form(setup_browser):
+    sales_page = ContactSalesPage()
+
     with allure.step("Open Contact Sales page"):
-        browser.open("/contact-sales/")
-        if browser.element('.onetrust-close-btn-handler').matching(be.visible):
-            browser.element('.onetrust-close-btn-handler').click()
+        sales_page.open_sales()
+        sales_page.close_cookies_if_visible()
 
     with allure.step("Click Schedule demo without filling fields"):
-        browser.element('[data-testid="pd-button-submit-form"]').click()
+        sales_page.submit_button.click()
 
     with allure.step("Verify validation errors are displayed"):
-        browser.element('.hs-form-field.hs_company .hs-error-msg').should(have.exact_text('Please enter your company name'))
+        sales_page.company_error.should(have.exact_text('Please enter your company name'))

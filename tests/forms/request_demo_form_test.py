@@ -1,31 +1,40 @@
 import allure
-from selene import browser, be, have
+from selene import have
+from src.pages.request_demo_page import RequestDemoPage
 
 
+@allure.tag("web", "regression", "forms")
 @allure.feature("Forms")
-@allure.story("Request a Demo")
-@allure.severity(allure.severity_level.CRITICAL)
+@allure.story("Request a Demo form validation")
+@allure.severity(allure.severity_level.NORMAL)
+@allure.link("https://www.pandadoc.com/getdemo/", name="Request a Demo page")
 def test_submit_empty_request(setup_browser):
+    request_demo = RequestDemoPage()
+
     with allure.step("Open Request a Demo form"):
-        browser.open("/getdemo/")
+        request_demo.open()
 
     with allure.step("Click Submit with all required fields empty"):
-        browser.element('[data-testid="pd-button-submit-form"]').click()
+        request_demo.submit_button.click()
 
-    with allure.step("Verify validation errors are displayed"):
-        browser.element('.hs-form-field.hs_email .hs-error-msg').should(have.exact_text('Please enter a valid email address'))
+    with allure.step("Verify validation error for email is displayed"):
+        request_demo.email_error.should(have.exact_text("Please enter a valid email address"))
 
 
+@allure.tag("web", "regression", "forms")
 @allure.feature("Forms")
-@allure.story("Request a Demo")
-@allure.severity(allure.severity_level.CRITICAL)
+@allure.story("Request a Demo form validation")
+@allure.severity(allure.severity_level.NORMAL)
+@allure.link("https://www.pandadoc.com/getdemo/", name="Request a Demo page")
 def test_valid_email_without_phone(setup_browser):
+    request_demo = RequestDemoPage()
+
     with allure.step("Open Request a Demo form"):
-        browser.open("/getdemo/")
+        request_demo.open()
 
-    with allure.step("Fill valid email and submit"):
-        browser.element('[name="email"]').type("abc@ads.abs")
-        browser.element('[data-testid="pd-button-submit-form"]').click()
+    with allure.step("Fill email and submit without phone"):
+        request_demo.email_input.type("abc@ads.abs")
+        request_demo.submit_button.click()
 
-    with allure.step("Verify phone validation error is shown"):
-        browser.element(".hs-form-field.hs_phone .hs-error-msg").should(have.exact_text("Please enter a valid phone number"))
+    with allure.step("Verify phone validation error is displayed"):
+        request_demo.phone_error.should(have.exact_text("Please enter a valid phone number"))
