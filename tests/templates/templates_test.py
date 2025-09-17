@@ -11,7 +11,7 @@ def test_search_template(setup_browser):
     with allure.step('Open the pricing page'):
         browser.open('/templates/')
 
-    query_text = 'Convertible Note greement Template'
+    query_text = 'Convertible Note Agreement Template'
 
     with allure.step(f'Search for "{query_text}"'):
         browser.element('.input-text.search__input').type(query_text).press_enter()

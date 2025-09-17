@@ -15,4 +15,4 @@ def test_submit_empty_contact_sales_form(setup_browser):
         browser.element('[data-testid="pd-button-submit-form"]').click()
 
     with allure.step("Verify validation errors are displayed"):
-        browser.element('.hs-form-field.hs_company .hs-error-msg').should(have.exact_text('lease enter your company name'))
+        browser.element('.hs-form-field.hs_company .hs-error-msg').should(have.exact_text('Please enter your company name'))
