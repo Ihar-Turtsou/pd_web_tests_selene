@@ -13,7 +13,7 @@ def test_submit_empty_request(setup_browser):
         browser.element('[data-testid="pd-button-submit-form"]').click()
 
     with allure.step("Verify validation errors are displayed"):
-        browser.element('.hs-form-field.hs_email .hs-error-msg').should(have.text('Please enter a valid email address'))
+        browser.element('.hs-form-field.hs_email .hs-error-msg').should(have.exact_text('Please enter a valid email address'))
 
 
 @allure.feature("Forms")
@@ -28,4 +28,4 @@ def test_valid_email_without_phone(setup_browser):
         browser.element('[data-testid="pd-button-submit-form"]').click()
 
     with allure.step("Verify phone validation error is shown"):
-        browser.element(".hs-form-field.hs_phone .hs-error-msg").should(have.text("lease enter a valid phone number"))
+        browser.element(".hs-form-field.hs_phone .hs-error-msg").should(have.exact_text("lease enter a valid phone number"))
