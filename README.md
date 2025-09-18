@@ -60,40 +60,24 @@ allure serve allure-results
 ## ⚙️ Run tests in Jenkins
 
 1. Log in to **Jenkins**  
-2. Select the job **`hw_pd_web_tests`**  
-3. Click **Build with parameters**  
-4. After the run finishes, open the **Allure Report** icon on the build page
+2. Select the job **`hw_14_pd_web_test_ihar_t`**  
+3. Click **Build Now**  
+4. After the run finishes, open the **Allure Report** or **Allure TestOps**  icon on the build page
 
-<p align="center">
-  <img title="Jenkins build" src="resources/images/screenshot/jenkins_build.png">
-</p>
+![Jenkins_build_page](./resources/images/screenshots/jenkins_build.png)
 
 ---
 
 ## 📊 Reports
 
 ### Allure Report
-<p align="center">
-  <img title="Allure Report" src="resources/images/screenshot/allure_example.png">
-</p>
+![Allure Report](./resources/images/screenshots/allure_example.png)
 
 ### Allure TestOps
-<p align="center">
-  <img title="Allure TestOps" src="resources/images/screenshot/allure_testops.png">
-</p>
+![Allure TestOps](./resources/images/screenshots/allure_testops.png)
 
 ### Telegram Notifications
-<p align="center">
-  <img title="Telegram report" src="resources/images/screenshot/telegram_example.png">
-</p>
+![Telegram report](./resources/images/screenshots/telegram_example.png)
 
 ---
-
-## ✅ Test coverage
-
-- **Homepage** — Header & Footer  
-- **Pricing** — Plans & CTA, Price toggle  
-- **Templates** — Search  
-- **Forms** — Request a Demo, Contact Sales  
-- **Navigation** — Main menu links
 
