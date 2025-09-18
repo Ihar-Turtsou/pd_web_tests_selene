@@ -22,15 +22,15 @@ Page Object Model (POM) is implemented for structured page logic.
 ## 🛠️ Technologies & Tools
 
 <p align="center">
-  <code><img width="8%" title="Python" src="resources/images/logo/python.png"></code>
-  <code><img width="8%" title="Pytest" src="resources/images/logo/pytest.png"></code>
-  <code><img width="8%" title="Selene" src="resources/images/logo/selene.png"></code>
-  <code><img width="8%" title="Selenium" src="resources/images/logo/selenium.png"></code>
-  <code><img width="8%" title="Allure Report" src="resources/images/logo/allure_report.png"></code>
-  <code><img width="8%" title="Allure TestOps" src="resources/images/logo/allure_testops.png"></code>
-  <code><img width="8%" title="Jenkins" src="resources/images/logo/jenkins.png"></code>
-  <code><img width="8%" title="Telegram" src="resources/images/logo/tg.png"></code>
-  <code><img width="8%" title="GitHub" src="resources/images/logo/github.png"></code>
+  <img width="10%" title="Python" src="./resources/images/logo/python.png" alt="python">
+  <img width="10%" title="Pytest" src="./resources/images/logo/pytest.png" alt="pytest">
+  <img width="10%" title="Selene" src="./resources/images/logo/selene.png" alt="selene">
+  <img width="10%" title="Selenium" src="./resources/images/logo/selenium.png" alt="selenium">
+  <img width="10%" title="Allure Report" src="./resources/images/logo/allure_report.png" alt="areport">
+  <img width="10%" title="Allure TestOps" src="./resources/images/logo/allure_testops.png" alt="testops">
+  <img width="10%" title="Jenkins" src="./resources/images/logo/jenkins.png" alt="jenkins">
+  <img width="10%" title="Telegram" src="./resources/images/logo/tg.png" alt="tg">
+  <img width="10%" title="GitHub" src="./resources/images/logo/github.png" alt="github">
 </p>
 
 ---
