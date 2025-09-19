@@ -1,6 +1,6 @@
 import allure
 from selene import browser, have, query
-from panda_doc.pages.pricing_page import PricingPage
+
 
 
 @allure.tag("web", "pricing")
@@ -11,11 +11,10 @@ class TestPricing:
     @allure.tag("smoke")
     @allure.story("Plans & CTA")
     @allure.severity(allure.severity_level.CRITICAL)
-    def test_pricing_plans_cta(self, setup_browser):
-        pricing_page = PricingPage()
+    def test_pricing_plans_cta(self, setup_browser, pricing_page):
 
         with allure.step('Open the pricing page'):
-            pricing_page.pricing_page_open()
+            pricing_page.open()
 
         with allure.step("Verify Starter plan CTA leads to trial"):
             pricing_page.button_start_free_trial.click()
@@ -26,11 +25,10 @@ class TestPricing:
     @allure.tag("regression")
     @allure.story("Plan price toggle")
     @allure.severity(allure.severity_level.NORMAL)
-    def test_starter_pricing(self, setup_browser):
-        pricing_page = PricingPage()
+    def test_starter_pricing(self, setup_browser, pricing_page):
 
         with allure.step('Open the pricing page'):
-            pricing_page.pricing_page_open()
+            pricing_page.open()
 
         with allure.step("Get expected values from attributes"):
            started_annual_expected = pricing_page.starter_price.get(query.attribute('data-toggleable-original'))

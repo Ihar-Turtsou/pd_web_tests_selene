@@ -8,7 +8,7 @@ class PricingPage:
 
     starter_price = browser.element('[data-personalization-plan="starter"] .plan__amount')
 
-    def pricing_page_open(self):
+    def open(self):
         browser.open('/pricing/')
         return self
 

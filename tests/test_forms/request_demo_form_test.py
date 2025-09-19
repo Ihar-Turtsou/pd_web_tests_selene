@@ -8,8 +8,7 @@ from panda_doc.pages.request_demo_page import RequestDemoPage
 @allure.story("Request a Demo form validation")
 @allure.severity(allure.severity_level.NORMAL)
 @allure.link("https://www.pandadoc.com/getdemo/", name="Request a Demo page")
-def test_submit_empty_request(setup_browser):
-    request_demo = RequestDemoPage()
+def test_submit_empty_request(setup_browser, request_demo):
 
     with allure.step("Open Request a Demo form"):
         request_demo.open()
@@ -26,8 +25,7 @@ def test_submit_empty_request(setup_browser):
 @allure.story("Request a Demo form validation")
 @allure.severity(allure.severity_level.NORMAL)
 @allure.link("https://www.pandadoc.com/getdemo/", name="Request a Demo page")
-def test_valid_email_without_phone(setup_browser):
-    request_demo = RequestDemoPage()
+def test_valid_email_without_phone(setup_browser, request_demo):
 
     with allure.step("Open Request a Demo form"):
         request_demo.open()

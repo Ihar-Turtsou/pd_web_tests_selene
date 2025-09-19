@@ -6,7 +6,11 @@ from dotenv import load_dotenv
 import os
 from selene import browser
 from utils import attach
-
+from panda_doc.pages.pricing_page import PricingPage
+from panda_doc.pages.home_page import HomePage
+from panda_doc.pages.templates_page import TemplatesPage
+from panda_doc.pages.request_demo_page import RequestDemoPage
+from panda_doc.pages.contact_sales_page import ContactSalesPage
 
 @pytest.fixture(scope="session", autouse=True)
 def load_env():
@@ -46,6 +50,26 @@ def remote_browser_setup(request):
         browser.quit()
     except (InvalidSessionIdException, WebDriverException):
         pass
+
+@pytest.fixture()
+def pricing_page():
+    return PricingPage()
+
+@pytest.fixture()
+def home_page():
+    return HomePage()
+
+@pytest.fixture()
+def contact_sales():
+    return ContactSalesPage()
+
+@pytest.fixture()
+def request_demo():
+    return RequestDemoPage()
+
+@pytest.fixture()
+def templates_page():
+    return TemplatesPage()
 
 @pytest.fixture(autouse=True)
 def setup_browser(remote_browser_setup):

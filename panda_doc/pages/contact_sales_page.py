@@ -6,7 +6,7 @@ class ContactSalesPage:
     company_error = browser.element(".hs-form-field.hs_company .hs-error-msg")
 
 
-    def open_sales(self):
+    def open(self):
         browser.open("/contact-sales/")
         return self
 

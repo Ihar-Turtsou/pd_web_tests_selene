@@ -8,12 +8,12 @@ from panda_doc.pages.templates_page import TemplatesPage
 @allure.story("Search")
 @allure.severity(allure.severity_level.CRITICAL)
 @allure.link("https://www.pandadoc.com/templates/", name="Templates page")
-def test_search_template(setup_browser):
-    templates_page = TemplatesPage()
+def test_search_template(setup_browser, templates_page):
+
     query_text = 'Convertible Note Agreement Template'
 
     with allure.step('Open the pricing page'):
-        templates_page.templates_page_open()
+        templates_page.open()
 
     with allure.step(f'Search for "{query_text}"'):
         templates_page.search_input.type(query_text).press_enter()
