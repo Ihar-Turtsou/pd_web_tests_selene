@@ -1,6 +1,6 @@
 import allure
 from selene import have
-from src.pages.request_demo_page import RequestDemoPage
+from panda_doc.pages.request_demo_page import RequestDemoPage
 
 
 @allure.tag("web", "regression", "forms")

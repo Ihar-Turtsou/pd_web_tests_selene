@@ -1,6 +1,6 @@
 import allure
 from selene import be, have
-from src.pages.home_page import HomePage
+from panda_doc.pages.home_page import HomePage
 
 @allure.tag('web', 'smoke')
 @allure.feature('Home')
@@ -11,7 +11,7 @@ def test_homepage_header_footer(setup_browser):
     home_page = HomePage()
 
     with allure.step('Open the homepage'):
-        home_page.home_page_open()
+        home_page.open()
 
     with allure.step('Verify logo is visible in the header'):
         home_page.logo.should(be.visible)

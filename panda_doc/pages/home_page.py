@@ -10,7 +10,7 @@ class HomePage:
     footer = browser.element('footer')
 
 
-    def home_page_open(self):
+    def open(self):
         browser.open('')
         return self
 
