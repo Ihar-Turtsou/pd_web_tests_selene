@@ -2,7 +2,6 @@ import allure
 from selene import browser, have, query
 
 
-
 @allure.tag("web", "pricing")
 @allure.feature("Pricing")
 @allure.link("https://www.pandadoc.com/pricing/", name="Pricing page")

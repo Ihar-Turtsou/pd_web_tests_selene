@@ -1,6 +1,6 @@
 import allure
 from selene import be, have
-from panda_doc.pages.home_page import HomePage
+
 
 @allure.tag('web', 'smoke')
 @allure.feature('Home')
@@ -11,4 +11,4 @@ def test_homepage_log_in(setup_browser, home_page):
 
     with allure.step('Open the homepage'):
         home_page.open()
-# Log_in test will be creating later....
+# Log_in test will be adding later....

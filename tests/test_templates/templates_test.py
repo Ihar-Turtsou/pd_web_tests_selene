@@ -1,6 +1,5 @@
 import allure
 from selene import browser, be, have
-from panda_doc.pages.templates_page import TemplatesPage
 
 
 @allure.tag("web", "smoke", "templates")
