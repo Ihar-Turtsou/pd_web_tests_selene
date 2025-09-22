@@ -12,32 +12,16 @@ class TestPricing:
     @allure.severity(allure.severity_level.CRITICAL)
     def test_pricing_plans_cta(self, setup_browser, pricing_page):
 
-        with allure.step('Open the pricing page'):
-            pricing_page.open()
-
-        with allure.step("Verify Starter plan CTA leads to trial"):
-            pricing_page.button_start_free_trial.click()
-
-            browser.element('h1').should(have.text('Start a free 14-day trial'))
+        pricing_page.open().start_free_trial()
+        browser.element('h1').should(have.text('Start a free 14-day trial'))
 
 
     @allure.tag("regression")
     @allure.story("Plan price toggle")
     @allure.severity(allure.severity_level.NORMAL)
     def test_starter_pricing(self, setup_browser, pricing_page):
+        annual_expected, monthly_expected = pricing_page.open().read_expected_starter_prises()
 
-        with allure.step('Open the pricing page'):
-            pricing_page.open()
-
-        with allure.step("Get expected values from attributes"):
-           started_annual_expected = pricing_page.starter_price.get(query.attribute('data-toggleable-original'))
-           started_monthly_expected = pricing_page.starter_price.get(query.attribute('data-toggleable-alternative'))
-
-        with allure.step("Verify annual price is shown by default"):
-            pricing_page.starter_price.should(have.text(started_annual_expected))
-
-        with allure.step("Switch to monthly pricing"):
-            pricing_page.toggle_billing.click()
-
-        with allure.step("Verify monthly price is shown after toggle"):
-            pricing_page.starter_price.should(have.text(started_monthly_expected))
+        pricing_page.starter_price.should(have.text(annual_expected))
+        pricing_page.toggle_billing().click()
+        pricing_page.starter_price.should(have.text(monthly_expected))
